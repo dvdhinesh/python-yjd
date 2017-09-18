@@ -33,17 +33,29 @@ class YjdAPI(object):
         response = self.client.service.AsnSubmit(asn=[asn_data])
         return response
 
-    def order_status_update(self):
-        raise NotImplementedError
+    def order_status_update(self, order_status_data):
+        if not order_status_data:
+            raise ValueError("No order status data specified")
+        response = self.client.service.OrderStatusUpdate(order=[order_status_data])
+        return response
 
-    def order_submit(self):
-        raise NotImplementedError
+    def order_submit(self, order_data):
+        if not order_data:
+            raise ValueError("No order data specified")
+        response = self.client.service.OrderSubmit(order=[order_data])
+        return response
 
-    def order_trans_plan(self):
-        raise NotImplementedError
+    def order_trans_plan(self, order_trans_plan_data):
+        if not order_trans_plan_data:
+            raise ValueError("No transplan data specified")
+        response = self.client.service.OrderTransPlan(order=[order_trans_plan_data])
+        return response
 
-    def ownership_transfer(self):
-        raise NotImplementedError
+    def ownership_transfer(self, ownership_transfer_data):
+        if not ownership_transfer_data:
+            raise ValueError("No ownership data specified")
+        response = self.client.service.OwnershipTransfer(order=[ownership_transfer_data])
+        return response
 
     def sku_submit(self, sku_data):
         if not sku_data:
