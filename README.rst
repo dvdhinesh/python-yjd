@@ -49,6 +49,10 @@ Usage
 	}
 	ws.asn_submit(asn_data)
 
+	# Supports Context Managers.
+	with yjd.YjdAPI(wsdl) as connection:
+	    connection.get_dump()
+
 
 License
 -------

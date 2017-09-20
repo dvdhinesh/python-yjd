@@ -19,6 +19,12 @@ class YjdAPI(object):
         self.transport = Transport(cache=SqliteCache())
         self.client = Client(wsdl, transport=self.transport)
 
+    def __enter__(self):
+        return self
+
+    def __exit__(self, type, value, traceback):
+        return False
+
     def get_dump(self):
         return self.client.wsdl.dump()
 
